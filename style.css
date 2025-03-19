@@ -1,0 +1,36 @@
+*{
+    border: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+    display:flex;
+    justify-content: center;
+}
+.container{
+    width:170px;
+    height:550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+input{
+    width: 170px;
+    margin-bottom:20px;
+    height:30px;
+    border: 2px solid black;
+    text-align:right;
+}
+
+#btn0, #btnEqual{
+    height:30px;
+    width:65px;
+}
+
+button{
+    height:30px;
+    width:30px;
+}
+
