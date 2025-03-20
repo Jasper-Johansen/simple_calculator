@@ -32,11 +32,24 @@ btns.forEach(btn => {
     btn.addEventListener("click", () => {
         display.textContent += btn.textContent;
 
-        [firstNumber,operator,secondNumber] = display.textContent.split(/([+\-*/])/);
+        /* if(display.textContent.split(/([+\-x*\/])/)<=3){
+            [firstNumber,operator,secondNumber] = display.textContent.split(/([+\-*\/])/);
+            firstNumber = parseFloat(firstNumber);
+            secondNumber = parseFloat(secondNumber);
+        }else{
+            for (let i=0; i<display.textContent.split(/([+\-*\/])/); i++){
+                [firstNumber,operator,secondNumber] = display.textContent.split(/([+\-*\/])/);
+            }
+               
+
+        } */
         
+
         if (btn.id === "btn-equal") {
+            display.textContent = '';
             if (operator==='+'){
                 result = add(firstNumber,secondNumber);
+                
             }else if (operator === '-'){
                 result = subtract(firstNumber,secondNumber);
             }else if(operator === '*'){
@@ -44,6 +57,12 @@ btns.forEach(btn => {
             }else{
                 result = divide(firstNumber,secondNumber);
             }
+            display.textContent += result;
+        }else if (btn.id === "btn-clear"){
+            display.textContent = '';
+        }else if (btn.id === "btn-del"){
+            display.textContent = display.textContent.slice(0,-4);
+        }
     });
 });
 
