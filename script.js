@@ -21,47 +21,47 @@ function multiply(num1, num2){
 }
 
 function divide(num1,num2){
-    if(num2 != 0){
-        return num1 / num2;
-    }else{
-    return "Zero Division is not allowed!"
-    }
+    return num2 !== 0 ? num1/num2 : "Undefined!";
 }
 
 btns.forEach(btn => {
     btn.addEventListener("click", () => {
         display.textContent += btn.textContent;
 
-        /* if(display.textContent.split(/([+\-x*\/])/)<=3){
-            [firstNumber,operator,secondNumber] = display.textContent.split(/([+\-*\/])/);
-            firstNumber = parseFloat(firstNumber);
-            secondNumber = parseFloat(secondNumber);
-        }else{
-            for (let i=0; i<display.textContent.split(/([+\-*\/])/); i++){
-                [firstNumber,operator,secondNumber] = display.textContent.split(/([+\-*\/])/);
-            }
-               
-
-        } */
-        
-
-        if (btn.id === "btn-equal") {
+        if (btn.id === "btn-clear"){
             display.textContent = '';
-            if (operator==='+'){
-                result = add(firstNumber,secondNumber);
-                
-            }else if (operator === '-'){
-                result = subtract(firstNumber,secondNumber);
-            }else if(operator === '*'){
-                result = multiply(firstNumber,secondNumber);
-            }else{
-                result = divide(firstNumber,secondNumber);
-            }
-            display.textContent += result;
-        }else if (btn.id === "btn-clear"){
-            display.textContent = '';
-        }else if (btn.id === "btn-del"){
+            firstNumber = '';
+            secondNumber = '';
+            operator = '';
+            result = '';
+            return;
+        }
+
+        if (btn.id === "btn-del"){
             display.textContent = display.textContent.slice(0,-4);
+            return;
+        }
+
+        let parts = display.textContent.split(/([+\-*\/])/).filter('');
+        console.log(parts);
+        if(parts.length>=3){
+            firstNumber = parseFloat(parts[0]);
+            operator = parts[1];
+            secondNumber = parseFloat(parts[2]);
+            if (!isNaN(firstNumber) && !isNaN(secondNumber)) {
+
+                switch(operator){
+                    case "+": result = add(firstNumber,secondNumber); break;
+                    case "-": result = subtract(firstNumber,secondNumber); break;
+                    case "*": result = multiply(firstNumber,secondNumber); break;
+                    case "/": result = divide(firstNumber,secondNumber); break;
+
+                }
+                
+                }
+            display.textContent = result;
+            firstNumber = parseFloat(result);
+                
         }
     });
 });
