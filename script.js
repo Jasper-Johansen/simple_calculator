@@ -14,13 +14,14 @@ let result = '';
 
 buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
-        display.textContent = btn.textContent;
+       
         if (!isNaN(parseInt(btn.textContent))) {
             if (operator === '') {
                 firstNumber += btn.textContent; 
             } else {
                 secondNumber += btn.textContent; 
             }
+            display.textContent += btn.textContent;
         } 
     
         else if (['+', '-', '*', '/'].includes(btn.textContent)) {
@@ -29,14 +30,17 @@ buttons.forEach((btn) => {
 
         else if (btn.textContent==="="){
             if (firstNumber && secondNumber && operator){
+                let num1 = parseInt(firstNumber);
+                let num2 = parseInt(secondNumber);
+
                 switch(operator){
-                    case '+': result = add(firstNumber,secondNumber); return result;
-                    case '-': result = subtract(firstNumber,secondNumber); return result;
-                    case '*': result = multiply(firstNumber,secondNumber); return result;
-                    case '/': result = divide(firstNumber,secondNumber); return result;
+                    case '+': result = add(num1,num2); break;
+                    case '-': result = subtract(num1,num2); break;
+                    case '*': result = multiply(num1,num2); break;
+                    case '/': result = divide(num1,num2); break;
                 }
                 display.textContent = result;
-                firstNumber = result;
+                firstNumber = result.toString();
                 secondNumber = '';
                 operator = '';
 
