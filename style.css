@@ -16,7 +16,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Ensure it takes full viewport height */
+    height: 100vh; 
     background-color: rgb(238, 243, 231);
 }
 
@@ -35,10 +35,11 @@ body {
     margin-bottom: 20px;
     border:none;
     text-align: right;
-    line-height: 50px; /* Centers the text vertically */
+    line-height: 50px;
     color: black;
-    background-color: white; /* Add background color to make display stand out */
-    font-size: 24px; /* Adjust font size for readability */
+    background-color: white; 
+    font-size: 24px; 
+    overflow: hidden;
 }
 
 .key-section {
@@ -55,22 +56,21 @@ button {
     background-color: grey;
     border: none;
     color: white;
-    font-size: 18px; /* Added font size for better readability */
+    font-size: 18px; 
     cursor: pointer;
-    transition: all 0.2s ease; /* Smooth transition for active state */
+    
 }
 
 button:active {
     transform: scale(0.95); /* Slightly reduces when the button is clicked */
     background-color: yellow;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
 }
 
 #btn0, #btn-equal {
-    width: calc(var(--button-width) * 2.08); /* Double width for these buttons */
+    width: calc(var(--button-width) * 2.08); 
 }
 
-/* Additional Styles */
 button:hover {
-    background-color: darkgrey; /* Slight hover effect */
+    background-color: darkgrey;
 }
