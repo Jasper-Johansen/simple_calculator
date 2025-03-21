@@ -46,6 +46,10 @@ buttons.forEach((btn) => {
 
         else if (['+', '-', '*', '/'].includes(btn.textContent)) {
             // If an operator is clicked, set the operator
+            if (firstNumber === ''){
+                return; //Do Nothing :)
+            }
+
             if (firstNumber !== '' && secondNumber !== '') {
                 let num1 = parseFloat(firstNumber);
                 let num2 = parseFloat(secondNumber);
@@ -55,6 +59,7 @@ buttons.forEach((btn) => {
                 secondNumber = '';
             }
             operator = btn.textContent;
+        
         }
 
         else if (btn.textContent === "=") {
