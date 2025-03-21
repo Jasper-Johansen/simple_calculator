@@ -98,59 +98,29 @@ buttons.forEach((btn) => {
 
 //keyboard support
 document.addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-        document.getElementById("btn-equal").click();
-    }
-    if (event.key === "Backspace") {
-        document.getElementById("btn-del").click();
-        }
-    if (event.key === "Escape") {
-            document.getElementById("btn-clear").click();
-    }
-    if (event.key === "1"){
-        document.getElementById("btn1").click();
-    }
-    if (event.key === "2"){
-        document.getElementById("btn2").click();
-        }
-    if (event.key === "3"){
-        document.getElementById("btn3").click();
-        }
-    if (event.key === "4"){
-        document.getElementById("btn4").click();
-        }
-    if (event.key === "5"){
-        document.getElementById("btn5").click();
-        }
-    if (event.key === "6"){
-        document.getElementById("btn6").click();
-        }
-    if (event.key === "7"){
-        document.getElementById("btn7").click();
-        }
-    if (event.key === "8"){
-       document.getElementById("btn8").click();
-        }
-    if (event.key === "9"){
-        document.getElementById("btn9").click();
-        }
-    if (event.key === "0"){
-        document.getElementById("btn0").click();
-    }
-    if (event.key === "."){
-        document.getElementById("btn-dot").click();
-    }
-    if (event.key === "/"){
-        document.getElementById("btn-slash").click();
-    }
-    if (event.key === "*"){
-        document.getElementById("btn-cross").click();
-    }
-    if (event.key === "+") {
-        document.getElementById("btn-plus").click();
-    }
-    if (event.key === "-"){
-        document.getElementById("btn-minus").click();
+    const keyClicks = {
+        "Enter" : "btn-equal",
+        "Backspace" : "btn-del",
+        "Escape" : "btn-clear",
+        "0" : "btn0",
+        "1" : "btn1",
+        "2" : "btn2",
+        "3" : "btn3",
+        "4" : "btn4",
+        "5" : "btn5",
+        "6" : "btn6",
+        "7" : "btn7",
+        "8" : "btn8",
+        "9" : "btn9",
+        "." : "btn-dot",
+        "+" : "btn-plus",
+        "-" : "btn-minus",
+        "*" : "btn-cross",
+        "/" : "btn-slash",
+    };
+    if (keyClicks[event.key]) {
+        //If the id associated with the keys exist...
+        document.getElementById(keyClicks[event.key]).click();
     }
                                         
 });
