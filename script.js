@@ -24,7 +24,7 @@ function operate(operator, firstNumber, secondNumber) {
 
 buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
-        if (!isNaN(parseInt(btn.textContent))) {
+        if (!isNaN(parseInt(btn.textContent)) || btn.textContent==='.' ) {
             if (operator === '') {
                 firstNumber += btn.textContent;
                 display.textContent = firstNumber;
@@ -38,8 +38,8 @@ buttons.forEach((btn) => {
         else if (['+', '-', '*', '/'].includes(btn.textContent)) {
             // If an operator is clicked, set the operator
             if (firstNumber !== '' && secondNumber !== '') {
-                let num1 = parseInt(firstNumber);
-                let num2 = parseInt(secondNumber);
+                let num1 = parseFloat(firstNumber);
+                let num2 = parseFloat(secondNumber);
                 result = operate(operator, num1, num2);
                 display.textContent = result;
                 firstNumber = result.toString();
