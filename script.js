@@ -33,7 +33,7 @@ buttons.forEach((btn) => {
                 if (firstNumber && firstNumber.match(/\./g) && firstNumber.match(/\./g).length>1){
                     firstNumber = firstNumber.slice(0,-1);
                 }
-               
+                display.textContent = firstNumber;
             } else {
                 secondNumber += btn.textContent;
                 if (secondNumber && secondNumber.match(/\./g) && secondNumber.match(/\./g).length>1){
