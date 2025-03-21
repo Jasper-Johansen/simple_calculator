@@ -49,7 +49,6 @@ buttons.forEach((btn) => {
         }
 
         else if (btn.textContent === "=") {
-            // Calculate the result when "=" is pressed
             if (firstNumber && secondNumber && operator) {
                 let num1 = parseInt(firstNumber);
                 let num2 = parseInt(secondNumber);
@@ -62,7 +61,6 @@ buttons.forEach((btn) => {
         }
 
         else if (btn.id === "btn-clear") {
-            // Clear the display and reset variables
             display.textContent = '';
             firstNumber = '';
             secondNumber = '';
@@ -70,7 +68,6 @@ buttons.forEach((btn) => {
         }
 
         else if (btn.id === "btn-del") {
-            // Delete the last character from display
             display.textContent = display.textContent.slice(0, -1);
             if (secondNumber) {
                 secondNumber = secondNumber.slice(0, -1);
