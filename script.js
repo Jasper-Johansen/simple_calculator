@@ -27,6 +27,7 @@ function operate(operator, firstNumber, secondNumber) {
 buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
         if (!isNaN(parseInt(btn.textContent)) || btn.textContent==='.' ) {
+            
             if (operator === '') {
                 firstNumber += btn.textContent;
                 if (firstNumber && firstNumber.match(/\./g) && firstNumber.match(/\./g).length>1){
@@ -61,11 +62,13 @@ buttons.forEach((btn) => {
                 let num1 = parseFloat(firstNumber);
                 let num2 = parseFloat(secondNumber);
                 result = operate(operator, num1, num2);
-                display.textContent = result;
                 firstNumber = result.toString();
+                display.textContent = result;
+                firstNumber = '';
                 secondNumber = '';
                 operator = '';
             }
+            
         }
 
         else if (btn.id === "btn-clear") {
