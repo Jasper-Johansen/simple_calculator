@@ -15,12 +15,13 @@ let result = '';
 
 function operate(operator, firstNumber, secondNumber) {
     switch (operator) {
-        case '+': return add(firstNumber, secondNumber);
-        case '-': return subtract(firstNumber, secondNumber);
-        case '*': return multiply(firstNumber, secondNumber);
-        case '/': return divide(firstNumber, secondNumber);
-        default: return '';
+        case '+': result = add(firstNumber, secondNumber); break;
+        case '-': result = subtract(firstNumber, secondNumber); break;
+        case '*': result = multiply(firstNumber, secondNumber); break;
+        case '/': result = divide(firstNumber, secondNumber); break;
+        default: result = '';
     }
+    return Math.round(result*100000)/100000;
 }
 
 buttons.forEach((btn) => {
