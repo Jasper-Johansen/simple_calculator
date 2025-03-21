@@ -1,5 +1,6 @@
 const display = document.querySelector(".display");
-let buttons = document.querySelectorAll("button");
+const buttons = document.querySelectorAll("button");
+const dotButton = document.querySelector("#btnDot")
 
 function add(num1, num2) { return num1 + num2; }
 function subtract(num1, num2) { return num1 - num2; }
@@ -27,9 +28,15 @@ buttons.forEach((btn) => {
         if (!isNaN(parseInt(btn.textContent)) || btn.textContent==='.' ) {
             if (operator === '') {
                 firstNumber += btn.textContent;
+                if (firstNumber && firstNumber.match(/\./g) && firstNumber.match(/\./g).length>1){
+                    firstNumber = firstNumber.slice(0,-1);
+                }
                 display.textContent = firstNumber;
             } else {
                 secondNumber += btn.textContent;
+                if (secondNumber && secondNumber.match(/\./g) && secondNumber.match(/\./g).length>1){
+                    secondNumber = secondNumber.slice(0,-1);
+                }
                 display.textContent =secondNumber;
             }
     
@@ -50,8 +57,8 @@ buttons.forEach((btn) => {
 
         else if (btn.textContent === "=") {
             if (firstNumber && secondNumber && operator) {
-                let num1 = parseInt(firstNumber);
-                let num2 = parseInt(secondNumber);
+                let num1 = parseFloat(firstNumber);
+                let num2 = parseFloat(secondNumber);
                 result = operate(operator, num1, num2);
                 display.textContent = result;
                 firstNumber = result.toString();
